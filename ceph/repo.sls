@@ -9,4 +9,5 @@ ceph-repo:
     - humanname: Ceph Debian Repository
     - name: deb http://download.ceph.com/debian-{{ settings.release }}/ {{ grains.oscodename }} main
     - key_url: https://download.ceph.com/keys/release.asc
+    - file: /etc/apt/sources.list.d/ceph-repo.list
 {%- endif %}
