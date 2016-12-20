@@ -10,6 +10,9 @@ install_ceph_pkgs:
   pkg.installed:
     - pkgs: {{ settings.packages }}
 
+/etc/ceph/ceph.conf:
+  file.managed
+
 ceph_config_file:
   ini.options_present:
     - name: /etc/ceph/ceph.conf
