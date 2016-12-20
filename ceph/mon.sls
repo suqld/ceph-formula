@@ -3,7 +3,7 @@
 
 {% from "ceph/map.jinja" import settings with context -%}
 
-{% set mon_name = 'mymon' %}
+{% set mon_name = grains['id'] %}
 {% set mon_dir = salt['cmd.run']('ceph-mon  --id ' ~ mon_name ~ ' --show-config-value mon_data') %}
 
 mkdir_dir_for_{{ mon_name }}:
