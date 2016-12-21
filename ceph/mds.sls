@@ -19,5 +19,5 @@ add_mds_keyring_{{ mds_name }}:
 
 start_mds_service_for_{{ mds_name }}:
   service.running:
-     - enabled: True
+     - enable: True
      - name: ceph-mds@{{ mds_name }}
