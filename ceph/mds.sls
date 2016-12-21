@@ -15,7 +15,7 @@ mkdir_dir_for_{{ mds_name }}:
 add_mds_keyring_{{ mds_name }}:
   cmd.run:
     - name: "ceph auth get-or-create mds.{{ mds_name }} mds 'allow ' osd 'allow *' mon 'allow rwx' > {{ mds_dir }}/keyring"
-    - unless: 'test -d {{ mds_dir }}/keyring'
+    - unless: 'test -s {{ mds_dir }}/keyring'
 
 start_mds_service_for_{{ mds_name }}:
   service.running:

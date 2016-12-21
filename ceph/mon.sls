@@ -15,7 +15,7 @@ mkdir_dir_for_{{ mon_name }}:
 add_mon_{{ mon_name }}:
   cmd.run:
     - name: "ceph-mon --setuser ceph --setgroup ceph --mkfs --id {{ mon_name }} --keyring /dev/null"
-    - unless: 'test -d {{ mon_dir }}/store.db'
+    - unless: 'test -s {{ mon_dir }}/store.db'
 
 start_mon_service_for_{{ mon_name }}:
   service.running:
