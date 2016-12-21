@@ -6,7 +6,7 @@
 {% set mds_name = grains['id'] %}
 {% set mds_dir = salt['cmd.run']('ceph-mds  --id ' ~ mds_name ~ ' --show-config-value mds_data') %}
 
-mkdir_dir_for_{{ mds_name }}:
+mkdir_mds_dir_for_{{ mds_name }}:
   file.directory:
     - name: {{ mds_dir }}
     - user: ceph
