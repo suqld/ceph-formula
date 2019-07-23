@@ -15,14 +15,40 @@ Available states
 .. contents::
     :local:
 
-``repo``
+``ceph``
 ----------
 
-Configure ceph repository.
+Install and configure Ceph
 
-For a list of all available options, look at: `ceph/defaults.yaml` - also have a look at the pillar.example and map.jinja.
+``ceph.mon``
+----------
 
-Currently tested under:
-=======================
+Install and configure Ceph monitor.
 
-* Ubuntu 16.04 LTS
+``ceph.osd``
+----------
+
+Install and configure Ceph OSDs.
+
+
+``ceph.repo``
+---------------------
+
+Configures the official Ceph (upstream) repository on target system (either
+`download.ceph.org` or `www.suse.com` mirror).
+
+The state relies on ``ceph:use_upstream_repo`` pillar boolean value-
+
+* ``True`` (default): adds the upstream repository to install packages from.
+* ``False``: makes sure that the repository configuration is absent.
+
+The ``ceph:release`` pillar controls which release to install. Defaults to ``luminous``.
+
+
+
+Usage
+========
+
+For a list of all available options, look at: *ceph/defaults.yaml* - also have a look at the *pillar.example* and *map.jinja*.
+
+Supports GNU Linux (Ubuntu, Fedora, Centos, Suse)

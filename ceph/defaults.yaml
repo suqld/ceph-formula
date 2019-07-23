@@ -2,10 +2,15 @@
 # vim: ft=yaml
 
 ceph:
-  release: jewel
+  release: nautilus
+  use_upstream_repo: true
+  fromrepo: ''
+  oscode: ''
   packages:
     - ceph
+  cluster_name: ceph
   config:
+    file: /etc/ceph/ceph.conf
     global:
       authentication_type: 'cephx'
   mon_hosts: []
