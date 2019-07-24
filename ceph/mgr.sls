@@ -4,7 +4,7 @@
 {% from "ceph/map.jinja" import ceph with context -%}
 
 {% set mgr_name = grains['host'] %}
-{% set mgr_dir = '/var/lib/ceph/mgr' %}
+{% set mgr_dir = '/var/lib/ceph/mgr/ceph-' ~ mgr_name %}
 
 mkdir_mgr_for_{{ mgr_name }}:
   file.directory:
