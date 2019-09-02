@@ -4,7 +4,7 @@
 {% from "ceph/map.jinja" import settings with context -%}
 
 {% set mds_name = grains['id'] %}
-{% set mds_dir = salt['cmd.run']('ceph-mds  --id ' ~ mds_name ~ ' --show-config-value mds_data') %}
+{% set mds_dir = salt['cmd.run']('ceph-mds  --id ' ~ mds_name ~ ' --show-config-value mds_data --no-mon-config') %}
 
 mkdir_mds_dir_for_{{ mds_name }}:
   file.directory:
